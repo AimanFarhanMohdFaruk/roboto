@@ -55,7 +55,7 @@ class ApplicationController
     when COMMANDS[:help]
       render_instructions
     else
-      puts "Unknown command: #{input}. Valid commands: PLACE, MOVE, LEFT, RIGHT, REPORT, EXIT."
+      puts "Unknown command: #{input}. Valid commands: PLACE, MOVE, LEFT, RIGHT, HELP, REPORT, EXIT."
     end
 
     return if @robot.errors.empty?
