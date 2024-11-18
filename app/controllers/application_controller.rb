@@ -19,7 +19,7 @@ class ApplicationController
   end
 
   def run
-    puts TTY::Box.info(I18n.t(:test), width: 79)
+    puts TTY::Box.info('Welcome to Roboto!', width: 79)
     render_instructions
 
     while @running
