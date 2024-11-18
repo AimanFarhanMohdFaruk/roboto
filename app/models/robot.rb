@@ -57,10 +57,10 @@ class Robot
   private
 
   def validate_placed
-    errors << 'Robot must first be placed on the surface.' unless @position
+    errors << I18n.t('robot.not_placed') unless @position
   end
 
   def validate_direction(direction)
-    errors << 'Invalid direction, use either north, south, east, or west' unless DIRECTIONS.include?(direction.upcase)
+    errors << I18n.t('robot.invalid_direction') unless DIRECTIONS.include?(direction.upcase)
   end
 end
