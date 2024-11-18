@@ -1,6 +1,7 @@
 # frozen_string_literal: true
+
 require 'pathname'
-require "readline"
+require 'readline'
 
 require 'bundler/setup'
 Bundler.require(:default)

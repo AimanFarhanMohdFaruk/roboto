@@ -1,21 +1,21 @@
-
+# frozen_string_literal: true
 
 class Robot
   attr_accessor :position, :direction, :errors
 
-  DIRECTIONS = %w[NORTH EAST SOUTH WEST]
-  
+  DIRECTIONS = %w[NORTH EAST SOUTH WEST].freeze
+
   def initialize
     @position = nil
     @direction = DIRECTIONS[0]
     @errors = []
   end
 
-  def place(x, y, direction, board)
+  def place(x, y, direction, _board)
     validate_direction(direction)
     return unless @errors.empty?
 
-    @position = [x,y]
+    @position = [x, y]
     @direction = direction.upcase
   end
 
@@ -42,23 +42,25 @@ class Robot
 
   def move(board)
     return unless @position
+
     new_position = case @direction.upcase
-               when "NORTH" then [@position[0], @position[1] + 1]
-               when "SOUTH" then [@position[0], @position[1] - 1]
-               when "EAST" then [@position[0] + 1, @position[1]]
-               when "WEST" then [@position[0] - 1, @position[1]]
-               end
-    
-    place(new_position[0], new_position[1], @direction, board) if board.is_valid_placement?(new_position[0], new_position[1])
+                   when 'NORTH' then [@position[0], @position[1] + 1]
+                   when 'SOUTH' then [@position[0], @position[1] - 1]
+                   when 'EAST' then [@position[0] + 1, @position[1]]
+                   when 'WEST' then [@position[0] - 1, @position[1]]
+                   end
+
+    place(new_position[0], new_position[1], @direction, board) if board.is_valid_placement?(new_position[0],
+                                                                                            new_position[1])
   end
 
   private
 
   def validate_placed
-    errors << "Robot must first be placed on the surface." unless @position
+    errors << 'Robot must first be placed on the surface.' unless @position
   end
 
   def validate_direction(direction)
-    errors << "Invalid direction, use either north, south, east, or west" unless DIRECTIONS.include?(direction.upcase)
+    errors << 'Invalid direction, use either north, south, east, or west' unless DIRECTIONS.include?(direction.upcase)
   end
 end

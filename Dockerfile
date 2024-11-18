@@ -7,8 +7,6 @@ RUN bundle config set --local path "vendor/bundle" && \
   bundle install --jobs 4 --retry 3
 
 COPY . /app/
-
-
 FROM ruby:3.2.0-alpine
 WORKDIR /app
 RUN bundle config set --local path "vendor/bundle"
