@@ -5,6 +5,7 @@ class ApplicationController
     left: "LEFT",
     right: "RIGHT",
     report: "REPORT",
+    help: "HELP",
     exit: "EXIT"
   }
 
@@ -49,6 +50,8 @@ class ApplicationController
       @robot.right
     when COMMANDS[:report]
       puts @robot.report
+    when COMMANDS[:help]
+      render_instructions
     else
       puts "Unknown command: #{input}. Valid commands: PLACE, MOVE, LEFT, RIGHT, REPORT, EXIT."
     end
@@ -112,6 +115,10 @@ class ApplicationController
       {
         command: pastel.bold("REPORT"),
         description: "Shows the current position of the robot and its direction."
+      },
+      {
+        command: pastel.bold("HELP"),
+        description: "Shows this instruction manual",
       },
       {
         command: pastel.red.bold("EXIT"),

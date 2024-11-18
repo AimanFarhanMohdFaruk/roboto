@@ -55,7 +55,7 @@ class Robot
   private
 
   def validate_placed
-    errors << "Robot must first be placed on the surface. Example, place 0, 0, east" unless @position
+    errors << "Robot must first be placed on the surface." unless @position
   end
 
   def validate_direction(direction)
