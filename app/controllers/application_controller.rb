@@ -68,13 +68,14 @@ class ApplicationController
   def handle_place(args)
     x, y, direction = args.split(',')
 
-    if (x.is_a? Integer) && (y.is_a? Integer) && direction
+    if validate_int_input(x) && validate_int_input(y) && direction
       x = x.to_i
       y = y.to_i
-      if @board.is_valid_placement?(x, y)
+
+      if @board.valid_placement?(x, y)
         @robot.place(x, y, direction, @board)
       else
-        @logger.warn('User attempted to place robot out of bounds')
+        @logger.warn("User attempted to place robot out of bounds with x => #{x}, y => #{y} values")
         puts render_error(I18n.t('robot.invalid_placement'))
       end
     else
@@ -140,5 +141,9 @@ class ApplicationController
     ) { box_content }
 
     puts box
+  end
+
+  def validate_int_input(input)
+    input.to_i.to_s == input
   end
 end

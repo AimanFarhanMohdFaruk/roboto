@@ -50,7 +50,7 @@ class Robot
                    when 'WEST' then [@position[0] - 1, @position[1]]
                    end
 
-    place(new_position[0], new_position[1], @direction, board) if board.is_valid_placement?(new_position[0],
+    place(new_position[0], new_position[1], @direction, board) if board.valid_placement?(new_position[0],
                                                                                             new_position[1])
   end
 
