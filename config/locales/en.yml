@@ -1,0 +1,6 @@
+en:
+  test: "This is a test"
+  application:
+    invalid_place_command: "Invalid PLACE command format. Use: PLACE X, Y, DIRECTION (NORTH, SOUTH, EAST, WEST)\n\nExample: PLACE 0,0,east"
+  robot:
+    invalid_placement: "Invalid position. Must be within the board dimensions."

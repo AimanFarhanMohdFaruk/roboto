@@ -19,7 +19,7 @@ class ApplicationController
   end
 
   def run
-    puts TTY::Box.info("Welcome to ROBOTO!\n", width: 79)
+    puts TTY::Box.info(I18n.t(:test), width: 79)
     render_instructions
 
     while @running
@@ -67,17 +67,18 @@ class ApplicationController
 
   def handle_place(args)
     x, y, direction = args.split(',')
-    if x && y && direction
+
+    if (x.is_a? Integer) && (y.is_a? Integer) && direction
       x = x.to_i
       y = y.to_i
       if @board.is_valid_placement?(x, y)
         @robot.place(x, y, direction, @board)
       else
         @logger.warn('User attempted to place robot out of bounds')
-        puts render_error('Invalid position. Must be within the board dimensions.')
+        puts render_error(I18n.t('robot.invalid_placement'))
       end
     else
-      puts render_error("Invalid PLACE command format. Use: PLACE X, Y, DIRECTION (NORTH, SOUTH, EAST, WEST)\n\nExample: PLACE 0,0,east")
+      puts render_error(I18n.t('application.invalid_place_command'))
     end
   end
 

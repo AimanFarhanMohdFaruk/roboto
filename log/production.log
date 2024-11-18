@@ -38,3 +38,11 @@ I, [2024-11-18T23:06:51.597053 #80470]  INFO -- : User input: MOVE
 I, [2024-11-18T23:06:53.312093 #80470]  INFO -- : User input: REPORT
 I, [2024-11-18T23:06:54.757744 #80470]  INFO -- : User input: MOVE
 I, [2024-11-18T23:06:55.677112 #80470]  INFO -- : User input: REPORT
+I, [2024-11-18T23:18:10.804446 #83134]  INFO -- : User input: PLACE
+W, [2024-11-18T23:18:10.806920 #83134]  WARN -- : User attempted to place robot out of bounds
+I, [2024-11-18T23:19:14.950485 #83266]  INFO -- : User input: PLACE
+W, [2024-11-18T23:19:14.952320 #83266]  WARN -- : Error from Robot: Invalid direction, use either north, south, east, or west
+I, [2024-11-18T23:21:05.139631 #83266]  INFO -- : User input: PLACE
+W, [2024-11-18T23:21:05.142029 #83266]  WARN -- : Error from Robot: Invalid direction, use either north, south, east, or west
+I, [2024-11-18T23:21:09.551636 #83266]  INFO -- : User input: PLACE
+I, [2024-11-18T23:23:42.791202 #83700]  INFO -- : User input: PLACE
